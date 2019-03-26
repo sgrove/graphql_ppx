@@ -12,7 +12,7 @@ open Output_native_utils
 let const_str_expr s = Ast_helper.(Exp.constant (Pconst_string (s, None)))
 
 let make_error_raiser loc message =
-  if Ppx_config.verbose_error_handling () then
+  if true then
     [%expr raise (Failure ("graphql_ppx: " ^ [%e message]))]
   else
     [%expr raise (Failure ("Unexpected GraphQL query response"))]
